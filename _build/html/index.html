@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to desmume-doc! &#8212; desmume-doc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Module index" href="modindex.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-desmume-doc">
+<h1>Welcome to desmume-doc!<a class="headerlink" href="#welcome-to-desmume-doc" title="Permalink to this headline">¶</a></h1>
+<p>desmume-doc aims to document the DeSmuME emulator’s Lua interface, because it is poorly documented and this makes it a nightmare to work with.
+The interface is powerful and allows quite a lot of useful scripting, but there doesn’t appear to be a single listing of all of the features.</p>
+<p>Please note: desmume-doc does not cover the Lua language itself, only DeSmuME’s Lua interface, so this is not an introduction to Lua programming.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modindex.html">Module index</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mods.html">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#emu">emu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-frameadvance"><code class="docutils literal notranslate"><span class="pre">emu.frameadvance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-gamecode"><code class="docutils literal notranslate"><span class="pre">emu.gamecode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-smallgamecode"><code class="docutils literal notranslate"><span class="pre">emu.smallgamecode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-speedmode-mode"><code class="docutils literal notranslate"><span class="pre">emu.speedmode(mode)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-wait"><code class="docutils literal notranslate"><span class="pre">emu.wait()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-pause"><code class="docutils literal notranslate"><span class="pre">emu.pause()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-unpause"><code class="docutils literal notranslate"><span class="pre">emu.unpause()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-emulateframe"><code class="docutils literal notranslate"><span class="pre">emu.emulateframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-emulateframefastnoskipping"><code class="docutils literal notranslate"><span class="pre">emu.emulateframefastnoskipping()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-emulateframefast"><code class="docutils literal notranslate"><span class="pre">emu.emulateframefast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-emulateframeinvisible"><code class="docutils literal notranslate"><span class="pre">emu.emulateframeinvisible()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-redraw"><code class="docutils literal notranslate"><span class="pre">emu.redraw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-getframecount"><code class="docutils literal notranslate"><span class="pre">emu.getframecount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-getlagcount"><code class="docutils literal notranslate"><span class="pre">emu.getlagcount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-lagged"><code class="docutils literal notranslate"><span class="pre">emu.lagged()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-emulating"><code class="docutils literal notranslate"><span class="pre">emu.emulating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-atframeboundary"><code class="docutils literal notranslate"><span class="pre">emu.atframeboundary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-registerbefore-func"><code class="docutils literal notranslate"><span class="pre">emu.registerbefore(func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-registerafter-func"><code class="docutils literal notranslate"><span class="pre">emu.registerafter(func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-registerstart-func"><code class="docutils literal notranslate"><span class="pre">emu.registerstart(func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-registerexit-func"><code class="docutils literal notranslate"><span class="pre">emu.registerexit(func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-persistglobalvariables-variabletable"><code class="docutils literal notranslate"><span class="pre">emu.persistglobalvariables(variabletable)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-message-str"><code class="docutils literal notranslate"><span class="pre">emu.message(str)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-print"><code class="docutils literal notranslate"><span class="pre">emu.print(...)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-openscript-filename"><code class="docutils literal notranslate"><span class="pre">emu.openscript(filename)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-reset"><code class="docutils literal notranslate"><span class="pre">emu.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-addmenu-menuname-menuentries"><code class="docutils literal notranslate"><span class="pre">emu.addmenu(menuName,</span> <span class="pre">menuEntries)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-setmenuiteminfo-menuitem-infotable"><code class="docutils literal notranslate"><span class="pre">emu.setmenuiteminfo(menuItem,</span> <span class="pre">infoTable)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-registermenustart-func"><code class="docutils literal notranslate"><span class="pre">emu.registermenustart(func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-register3devent-func"><code class="docutils literal notranslate"><span class="pre">emu.register3devent(func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#emu-set3dtransform-mode-matrix"><code class="docutils literal notranslate"><span class="pre">emu.set3dtransform(mode,</span> <span class="pre">matrix)</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#gui">gui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#stylus">emu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#savestate">savestate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#memory">memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-readbyte-address"><code class="docutils literal notranslate"><span class="pre">memory.readbyte(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-readbytesigned-address"><code class="docutils literal notranslate"><span class="pre">memory.readbytesigned(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-readword-address"><code class="docutils literal notranslate"><span class="pre">memory.readword(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-readwordsigned-address"><code class="docutils literal notranslate"><span class="pre">memory.readwordsigned(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-readdword-address"><code class="docutils literal notranslate"><span class="pre">memory.readdword(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-readdwordsigned-address"><code class="docutils literal notranslate"><span class="pre">memory.readdwordsigned(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-readbyterange-address-length"><code class="docutils literal notranslate"><span class="pre">memory.readbyterange(address,</span> <span class="pre">length)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-writebyte-address-value"><code class="docutils literal notranslate"><span class="pre">memory.writebyte(address,</span> <span class="pre">value)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-writeword-address-value"><code class="docutils literal notranslate"><span class="pre">memory.writeword(address,</span> <span class="pre">value)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-writedword-address-value"><code class="docutils literal notranslate"><span class="pre">memory.writedword(address,</span> <span class="pre">value)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-isvalid-address"><code class="docutils literal notranslate"><span class="pre">memory.isvalid(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-getregister-cpu-dot-registername-string"><code class="docutils literal notranslate"><span class="pre">memory.getregister(cpu_dot_registername_string)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-setregister-cpu-dot-registername-string-value"><code class="docutils literal notranslate"><span class="pre">memory.setregister(cpu_dot_registername_string,</span> <span class="pre">value)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-vram-readword-address"><code class="docutils literal notranslate"><span class="pre">memory.vram_readword(address)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-vram-writeword-address-value"><code class="docutils literal notranslate"><span class="pre">memory.vram_writeword(address,</span> <span class="pre">value)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-registerwrite-address-size-1-cpuname-main-func"><code class="docutils literal notranslate"><span class="pre">memory.registerwrite(address[,</span> <span class="pre">size</span> <span class="pre">=</span> <span class="pre">1][,</span> <span class="pre">cpuname</span> <span class="pre">=</span> <span class="pre">&quot;main&quot;],</span> <span class="pre">func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-registerread-address-size-1-cpuname-main-func"><code class="docutils literal notranslate"><span class="pre">memory.registerread(address[,</span> <span class="pre">size</span> <span class="pre">=</span> <span class="pre">1][,</span> <span class="pre">cpuname</span> <span class="pre">=</span> <span class="pre">&quot;main&quot;],</span> <span class="pre">func)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mods.html#memory-registerexec-address-size-2-cpuname-main-func"><code class="docutils literal notranslate"><span class="pre">memory.registerexec(address[,</span> <span class="pre">size</span> <span class="pre">=</span> <span class="pre">2][,</span> <span class="pre">cpuname</span> <span class="pre">=</span> <span class="pre">&quot;main&quot;],</span> <span class="pre">func)</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#joypad">joypad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#input">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#movie">movie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#sound">sound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#bit">bit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#agg">agg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mods.html#controller">controller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">desmume-doc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modindex.html">Module index</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="modindex.html" title="next chapter">Module index</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Jhynjhiruu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

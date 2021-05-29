@@ -1,0 +1,153 @@
+Module index
+************
+
+* emu
+
+* gui
+
+* emu
+
+* savestate
+
+* memory
+
+* joypad
+
+* input
+
+* movie
+
+* sound
+
+* bit
+
+* agg
+
+* controller
+
+* Modules
+
+  * emu
+
+    * "emu.frameadvance()"
+
+    * "emu.gamecode()"
+
+    * "emu.smallgamecode()"
+
+    * "emu.speedmode(mode)"
+
+    * "emu.wait()"
+
+    * "emu.pause()"
+
+    * "emu.unpause()"
+
+    * "emu.emulateframe()"
+
+    * "emu.emulateframefastnoskipping()"
+
+    * "emu.emulateframefast()"
+
+    * "emu.emulateframeinvisible()"
+
+    * "emu.redraw()"
+
+    * "emu.getframecount()"
+
+    * "emu.getlagcount()"
+
+    * "emu.lagged()"
+
+    * "emu.emulating()"
+
+    * "emu.atframeboundary()"
+
+    * "emu.registerbefore(func)"
+
+    * "emu.registerafter(func)"
+
+    * "emu.registerstart(func)"
+
+    * "emu.registerexit(func)"
+
+    * "emu.persistglobalvariables(variabletable)"
+
+    * "emu.message(str)"
+
+    * "emu.print(...)"
+
+    * "emu.openscript(filename)"
+
+    * "emu.reset()"
+
+    * "emu.addmenu(menuName, menuEntries)"
+
+    * "emu.setmenuiteminfo(menuItem, infoTable)"
+
+    * "emu.registermenustart(func)"
+
+    * "emu.register3devent(func)"
+
+    * "emu.set3dtransform(mode, matrix)"
+
+  * gui
+
+  * emu
+
+  * savestate
+
+  * memory
+
+    * "memory.readbyte(address)"
+
+    * "memory.readbytesigned(address)"
+
+    * "memory.readword(address)"
+
+    * "memory.readwordsigned(address)"
+
+    * "memory.readdword(address)"
+
+    * "memory.readdwordsigned(address)"
+
+    * "memory.readbyterange(address, length)"
+
+    * "memory.writebyte(address, value)"
+
+    * "memory.writeword(address, value)"
+
+    * "memory.writedword(address, value)"
+
+    * "memory.isvalid(address)"
+
+    * "memory.getregister(cpu_dot_registername_string)"
+
+    * "memory.setregister(cpu_dot_registername_string, value)"
+
+    * "memory.vram_readword(address)"
+
+    * "memory.vram_writeword(address, value)"
+
+    * "memory.registerwrite(address[, size = 1][, cpuname = "main"],
+      func)"
+
+    * "memory.registerread(address[, size = 1][, cpuname = "main"],
+      func)"
+
+    * "memory.registerexec(address[, size = 2][, cpuname = "main"],
+      func)"
+
+  * joypad
+
+  * input
+
+  * movie
+
+  * sound
+
+  * bit
+
+  * agg
+
+  * controller

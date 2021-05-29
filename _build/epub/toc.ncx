@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>desmume-doc</text>
+  </docTitle>
+  <navMap>    
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Welcome to desmume-doc!</text>
+      </navLabel>
+      <content src="index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Module index</text>
+      </navLabel>
+      <content src="modindex.xhtml" />  
+      <navPoint id="navPoint3" playOrder="2">
+        <navLabel>
+          <text>Module index</text>
+        </navLabel>
+        <content src="modindex.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>Modules</text>
+        </navLabel>
+        <content src="mods.xhtml" />  
+        <navPoint id="navPoint5" playOrder="3">
+          <navLabel>
+            <text>Modules</text>
+          </navLabel>
+          <content src="mods.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint6" playOrder="4">
+          <navLabel>
+            <text>emu</text>
+          </navLabel>
+          <content src="mods.xhtml#emu" />  
+        </navPoint>
+        <navPoint id="navPoint7" playOrder="5">
+          <navLabel>
+            <text>gui</text>
+          </navLabel>
+          <content src="mods.xhtml#gui" />  
+        </navPoint>
+        <navPoint id="navPoint8" playOrder="6">
+          <navLabel>
+            <text>emu</text>
+          </navLabel>
+          <content src="mods.xhtml#stylus" />  
+        </navPoint>
+        <navPoint id="navPoint9" playOrder="7">
+          <navLabel>
+            <text>savestate</text>
+          </navLabel>
+          <content src="mods.xhtml#savestate" />  
+        </navPoint>
+        <navPoint id="navPoint10" playOrder="8">
+          <navLabel>
+            <text>memory</text>
+          </navLabel>
+          <content src="mods.xhtml#memory" />  
+        </navPoint>
+        <navPoint id="navPoint11" playOrder="9">
+          <navLabel>
+            <text>joypad</text>
+          </navLabel>
+          <content src="mods.xhtml#joypad" />  
+        </navPoint>
+        <navPoint id="navPoint12" playOrder="10">
+          <navLabel>
+            <text>input</text>
+          </navLabel>
+          <content src="mods.xhtml#input" />  
+        </navPoint>
+        <navPoint id="navPoint13" playOrder="11">
+          <navLabel>
+            <text>movie</text>
+          </navLabel>
+          <content src="mods.xhtml#movie" />  
+        </navPoint>
+        <navPoint id="navPoint14" playOrder="12">
+          <navLabel>
+            <text>sound</text>
+          </navLabel>
+          <content src="mods.xhtml#sound" />  
+        </navPoint>
+        <navPoint id="navPoint15" playOrder="13">
+          <navLabel>
+            <text>bit</text>
+          </navLabel>
+          <content src="mods.xhtml#bit" />  
+        </navPoint>
+        <navPoint id="navPoint16" playOrder="14">
+          <navLabel>
+            <text>agg</text>
+          </navLabel>
+          <content src="mods.xhtml#agg" />  
+        </navPoint>
+        <navPoint id="navPoint17" playOrder="15">
+          <navLabel>
+            <text>controller</text>
+          </navLabel>
+          <content src="mods.xhtml#controller" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

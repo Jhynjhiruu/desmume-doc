@@ -1,0 +1,591 @@
+.\" Man page generated from reStructuredText.
+.
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.TH "DESMUME-DOC" "1" "May 29, 2021" "" "desmume-doc"
+.SH NAME
+desmume-doc \- desmume-doc 
+.sp
+desmume\-doc aims to document the DeSmuME emulator’s Lua interface, because it is poorly documented and this makes it a nightmare to work with.
+The interface is powerful and allows quite a lot of useful scripting, but there doesn’t appear to be a single listing of all of the features.
+.sp
+Please note: desmume\-doc does not cover the Lua language itself, only DeSmuME’s Lua interface, so this is not an introduction to Lua programming.
+.SH MODULE INDEX
+.INDENT 0.0
+.IP \(bu 2
+emu
+.IP \(bu 2
+gui
+.IP \(bu 2
+stylus
+.IP \(bu 2
+savestate
+.IP \(bu 2
+memory
+.IP \(bu 2
+joypad
+.IP \(bu 2
+input
+.IP \(bu 2
+movie
+.IP \(bu 2
+sound
+.IP \(bu 2
+bit
+.IP \(bu 2
+agg
+.IP \(bu 2
+controller
+.UNINDENT
+.SS Modules
+.SS emu
+.sp
+The \fBemu\fP module contains general emulator functions.
+.INDENT 0.0
+.IP \(bu 2
+\fI\%frameadvance\fP
+.IP \(bu 2
+\fI\%gamecode\fP
+.IP \(bu 2
+\fI\%smallgamecode\fP
+.IP \(bu 2
+\fI\%speedmode\fP
+.IP \(bu 2
+\fI\%wait\fP
+.IP \(bu 2
+\fI\%pause\fP
+.IP \(bu 2
+\fI\%unpause\fP
+.IP \(bu 2
+\fI\%emulateframe\fP
+.IP \(bu 2
+\fI\%emulateframefastnoskipping\fP
+.IP \(bu 2
+\fI\%emulateframefast\fP
+.IP \(bu 2
+\fI\%emulateframeinvisible\fP
+.IP \(bu 2
+\fI\%redraw\fP
+.IP \(bu 2
+\fI\%getframecount\fP
+.IP \(bu 2
+\fI\%getlagcount\fP
+.IP \(bu 2
+\fI\%lagged\fP
+.IP \(bu 2
+\fI\%emulating\fP
+.IP \(bu 2
+\fI\%atframeboundary\fP
+.IP \(bu 2
+\fI\%registerbefore\fP
+.IP \(bu 2
+\fI\%registerafter\fP
+.IP \(bu 2
+\fI\%registerstart\fP
+.IP \(bu 2
+\fI\%registerexit\fP
+.IP \(bu 2
+\fI\%persistglobalvariables\fP
+.IP \(bu 2
+\fI\%message\fP
+.IP \(bu 2
+\fI\%print\fP
+.IP \(bu 2
+\fI\%openscript\fP
+.IP \(bu 2
+\fI\%reset\fP
+.IP \(bu 2
+\fI\%addmenu\fP
+.IP \(bu 2
+\fI\%setmenuiteminfo\fP
+.IP \(bu 2
+\fI\%registermenustart\fP
+.IP \(bu 2
+\fI\%register3devent\fP
+.IP \(bu 2
+\fI\%set3dtransform\fP
+.UNINDENT
+.SS \fBemu.frameadvance()\fP
+.sp
+Steps emulation one frame. Can be used when overriding the main emulation loop.
+.SS \fBemu.gamecode()\fP
+.sp
+Retrieves the full game code of the currently loaded ROM as a string.
+.SS \fBemu.smallgamecode()\fP
+.sp
+Retrieves the game code excluding the region code of the currently loaded ROM as a string.
+.SS \fBemu.speedmode(mode)\fP
+.sp
+\fBmode\fP is a string with a value of any of {\fBnormal\fP, \fBnothrottle\fP, \fBturbo\fP, \fBmaximum\fP}.
+.sp
+Sets the emulation speed when using \fBemu.frameadvance\fP\&.
+.SS \fBemu.wait()\fP
+.sp
+Tells the emulator to wait while the script does calculations. Note that hotkeys are not disabled, so e.g. a savestate could still be loaded while the emulator is waiting.
+.SS \fBemu.pause()\fP
+.sp
+Pauses emulation.
+.SS \fBemu.unpause()\fP
+.sp
+Unpauses emulation.
+.SS \fBemu.emulateframe()\fP
+.sp
+Steps one frame. Equivalent to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+emu.setspeed("normal")
+emu.frameadvance()
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.emulateframefastnoskipping()\fP
+.sp
+Fast\-forwards emulation once but render every frame. Equivalent to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+emu.setspeed("nothrottle")
+emu.frameadvance()
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.emulateframefast()\fP
+.sp
+Fast\-forwards emulation once. Equivalent to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+emu.setspeed("turbo")
+emu.frameadvance()
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.emulateframeinvisible()\fP
+.sp
+Extremely\-fast\-forwards emulation once. Equivalent to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+emu.setspeed("maximum")
+emu.frameadvance()
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.redraw()\fP
+.sp
+Redraws the current frame.
+.SS \fBemu.getframecount()\fP
+.sp
+Gets the current frame count as an integer.
+.SS \fBemu.getlagcount()\fP
+.sp
+Gets the current total lag frames as an integer.
+.SS \fBemu.lagged()\fP
+.sp
+Returns true if the current frame is a lag frame.
+.SS \fBemu.emulating()\fP
+.sp
+Returns true if the emulator is currently running.
+.SS \fBemu.atframeboundary()\fP
+.sp
+Returns true if the emulator is at a frame boundary.
+.SS \fBemu.registerbefore(func)\fP
+.sp
+\fBfunc\fP is a function taking no arguments.
+.sp
+Sets up a callback function to run before every frame starts. Can be used to e.g. set up memory or controller inputs for the next frame.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function myCallback()
+    print("Frame starting")
+end
+
+emu.registerbefore(myCallback)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.registerafter(func)\fP
+.sp
+\fBfunc\fP is a function taking no arguments.
+.sp
+Sets up a callback function to run after every frame ends. Can be used to e.g. read out memory or controller dataa for the previous frame.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function myCallback()
+    print("Frame ending")
+end
+
+emu.registerafter(myCallback)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.registerstart(func)\fP
+.sp
+\fBfunc\fP is a function taking no arguments.
+.sp
+Sets up a callback function to run on script start or reset. Does not work correctly with script start.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function myCallback()
+    print(emu.gamecode())
+    file = io.open("log.txt", "w+")
+end
+
+emu.registerstart(myCallback)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.registerexit(func)\fP
+.sp
+\fBfunc\fP is a function taking no arguments.
+.sp
+Sets up a callback function to run on script end.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function myCallback()
+    file:close()
+end
+
+emu.registerexit(myCallback)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.persistglobalvariables(variabletable)\fP
+.sp
+\fBvariabletable\fP is a table comprising keys and values.
+.sp
+Defines a global variable for each key in \fBvariabletable\fP\&. The variables will be set to the values they had the last time the script exited, or the value provided in the table if that is not available.
+To set a default value of \fBnil\fP for a variable, pass the variable name as a string with no associated value.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+emu.persistglobalvariables({
+    variable1 = defaultvalue1,
+    variable2 = defaultvalue2,
+    \-\- ...
+})
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBemu.message(str)\fP
+.sp
+\fBstr\fP is a string with the message to be displayed.
+.sp
+Displays an info message to the user.
+.SS \fBemu.print(...)\fP
+.sp
+Replacement for \fBluaB_print()\fP that outputs to the appropriate textbox instead of stdout.
+.SS \fBemu.openscript(filename)\fP
+.sp
+\fBfilename\fP is a string containing the filepath of the script to open.
+.sp
+Opens a new Lua script. Only available in the Windows frontend.
+.SS \fBemu.reset()\fP
+.sp
+Resets the currently loaded ROM.
+.SS \fBemu.addmenu(menuName, menuEntries)\fP
+.sp
+\fBmenuName\fP is a string containing the name the new menu should have. \fBmenuEntries\fP is a table containing the entries that the menu will have.
+.sp
+TODO: add an example for this.
+.SS \fBemu.setmenuiteminfo(menuItem, infoTable)\fP
+.sp
+\fBmenuItem\fP is a… actually, I really have no idea.
+.sp
+TODO: work out how the hell this function works
+.SS \fBemu.registermenustart(func)\fP
+.sp
+\fBfunc\fP is a function taking ?? arguments.
+.sp
+TODO: literally all of the menu stuff
+.SS \fBemu.register3devent(func)\fP
+.sp
+\fBfunc\fP is a function taking ?? arguments.
+.sp
+TODO: figure out 3D stuff
+.SS \fBemu.set3dtransform(mode, matrix)\fP
+.sp
+\fBmode\fP is a number with a value of either 2 or 3. \fBmatrix\fP is a camera matrix.
+.sp
+TODO: 3D
+.SS gui
+.SS emu
+.SS savestate
+.SS memory
+.sp
+The \fBmemory\fP module contains functions related to game memory.
+.INDENT 0.0
+.IP \(bu 2
+\fI\%readbyte\fP
+.IP \(bu 2
+\fI\%readbytesigned\fP
+.IP \(bu 2
+\fI\%readword\fP
+.IP \(bu 2
+\fI\%readwordsigned\fP
+.IP \(bu 2
+\fI\%readdword\fP
+.IP \(bu 2
+\fI\%readdwordsigned\fP
+.IP \(bu 2
+\fI\%readbyterange\fP
+.IP \(bu 2
+\fI\%writebyte\fP
+.IP \(bu 2
+\fI\%writeword\fP
+.IP \(bu 2
+\fI\%writedword\fP
+.IP \(bu 2
+\fI\%isvalid\fP
+.IP \(bu 2
+\fI\%getregister\fP
+.IP \(bu 2
+\fI\%setregister\fP
+.IP \(bu 2
+\fI\%vram_readword\fP
+.IP \(bu 2
+\fI\%vram_writeword\fP
+.IP \(bu 2
+\fI\%registerwrite\fP
+.IP \(bu 2
+\fI\%registerread\fP
+.IP \(bu 2
+\fI\%registerexec\fP
+.UNINDENT
+.SS \fBmemory.readbyte(address)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a byte in the ARM9 CPU’s address space.
+.sp
+Reads one byte from address \fBaddress\fP\&.
+.SS \fBmemory.readbytesigned(address)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a signed byte in the ARM9 CPU’s address space.
+.sp
+Reads one signed byte from address \fBaddress\fP\&.
+.SS \fBmemory.readword(address)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a word in the ARM9 CPU’s address space.
+.sp
+Reads one word (16 bits) from address \fBaddress\fP\&.
+.SS \fBmemory.readwordsigned(address)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a signed word in the ARM9 CPU’s address space.
+.sp
+Reads one signed word (16 bits) from address \fBaddress\fP\&.
+.SS \fBmemory.readdword(address)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a dword in the ARM9 CPU’s address space.
+.sp
+Reads one dword (32 bits) from address \fBaddress\fP\&.
+.SS \fBmemory.readdwordsigned(address)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a signed dword in the ARM9 CPU’s address space.
+.sp
+Reads one signed dword (32 bits) from address \fBaddress\fP\&.
+.SS \fBmemory.readbyterange(address, length)\fP
+.sp
+\fBaddress\fP is an integer representing the start of the block to read. \fBlength\fP is an integer representing the length of the block to read.
+.sp
+Reads \fBlength\fP bytes from address \fBaddress\fP\&. Returns an array.
+.SS \fBmemory.writebyte(address, value)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a byte in the ARM9 CPU’s address space. \fBvalue\fP is the byte to write there as an integer.
+.sp
+Writes the byte \fBvalue\fP to address \fBaddress\fP\&.
+.SS \fBmemory.writeword(address, value)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a word in the ARM9 CPU’s address space. \fBvalue\fP is the word to write there as an integer.
+.sp
+Writes the word \fBvalue\fP to address \fBaddress\fP\&.
+.SS \fBmemory.writedword(address, value)\fP
+.sp
+\fBaddress\fP is an integer representing the address of a dword in the ARM9 CPU’s address space. \fBvalue\fP is the dword to write there as an integer.
+.sp
+Writes the dword \fBvalue\fP to address \fBaddress\fP\&.
+.SS \fBmemory.isvalid(address)\fP
+.sp
+\fBaddress\fP is an integer representing an address in the ARM9 CPU’s address space.
+.sp
+Returns \fBtrue\fP if \fBaddress\fP is a valid hardware address, else \fBfalse\fP\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function getString(address)
+    if memory.isvalid(address) then
+        local index = 1
+        local str = ""
+        local c = memory.readbyte(address)
+        while c ~= 0 do
+            str = str .. string.char(c)
+            c = memory.readbyte(address + index)
+            index = index + 1
+        end
+        return str
+    end
+    return nil
+end
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBmemory.getregister(cpu_dot_registername_string)\fP
+.sp
+\fBcpu_dot_registername_string\fP is a string representing the register to read. The format is \fB<CPU>.<register>\fP, where \fBCPU\fP is “arm9” or “arm7” (or “main” or “sub”, respectively) and \fBregister\fP is \fBr0\fP\-\fBr15\fP, \fBcpsr\fP or \fBspsr\fP\&.
+.sp
+Returns the contents of the register referenced by \fBcpu_dot_registername_string\fP\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function debugPrintHook()
+    local strAddr = memory.getregister("arm9.r0")
+    if strAddr ~= 0 then
+        local str = getString(strAddr)
+        if str ~= nil then
+            print(str)
+        end
+    end
+end
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBmemory.setregister(cpu_dot_registername_string, value)\fP
+.sp
+\fBcpu_dot_registername_string\fP is a string representing the register to write. The format is \fB<CPU>.<register>\fP, where \fBCPU\fP is “arm9” or “arm7” (or “main” or “sub”, respectively) and \fBregister\fP is \fBr0\fP\-\fBr15\fP, \fBcpsr\fP or \fBspsr\fP\&. \fBvalue\fP is the data to write to it, as an integer.
+.sp
+Writes \fBvalue\fP to the register referenced by \fBcpu_dot_registername_string\fP\&.
+.SS \fBmemory.vram_readword(address)\fP
+.sp
+\fBaddress\fP is the address of a word in the console’s VRAM address space.
+.sp
+Reads one word (16 bits) from VRAM address \fBaddress\fP\&.
+.SS \fBmemory.vram_writeword(address, value)\fP
+.sp
+\fBaddress\fP is the address of a word in the console’s VRAM address space. \fBvalue\fP is the word to write there.
+.sp
+Writes one word (16 bits) to VRAM address \fBaddress\fP\&.
+.SS \fBmemory.registerwrite(address[, size = 1][, cpuname = "main"], func)\fP
+.sp
+\fBaddress\fP is an integer representing an address in the chosen CPU’s address space. \fBsize\fP is an integer representing the length of the memory region that should be registered. \fBcpuname\fP is a string containing the name of the CPU to register to, with a value of either “main” or “sub” (or “arm9” or “arm7”, respectively). \fBfunc\fP is a function taking no arguments.
+.sp
+Registers a memory write watchpoint with size \fBsize\fP at address \fBcpuname\fP:\fBaddress\fP\&. When \fBcpuname\fP:\fBaddress\fP is written, \fBfunc\fP will be called.
+.sp
+TODO: verify whether \fBsize\fP and \fBcpuname\fP are used at all (they don’t seem to be).
+.SS \fBmemory.registerread(address[, size = 1][, cpuname = "main"], func)\fP
+.sp
+\fBaddress\fP is an integer representing an address in the chosen CPU’s address space. \fBsize\fP is an integer representing the length of the memory region that should be registered. \fBcpuname\fP is a string containing the name of the CPU to register to, with a value of either “main” or “sub” (or “arm9” or “arm7”, respectively). \fBfunc\fP is a function taking no arguments.
+.sp
+Registers a memory read watchpoint with size \fBsize\fP at address \fBcpuname\fP:\fBaddress\fP\&. When \fBcpuname\fP:\fBaddress\fP is read, \fBfunc\fP will be called.
+.sp
+TODO: verify whether \fBsize\fP and \fBcpuname\fP are used at all (they don’t seem to be).
+.SS \fBmemory.registerexec(address[, size = 2][, cpuname = "main"], func)\fP
+.sp
+\fBaddress\fP is an integer representing the address of an instruction in the chosen CPU’s address space. \fBsize\fP is an integer representing the length of the memory region that should be registered. \fBcpuname\fP is a string containing the name of the CPU to register to, with a value of either “main” or “sub” (or “arm9” or “arm7”, respectively). \fBfunc\fP is a function taking no arguments.
+.sp
+Registers a memory exec watchpoint with size \fBsize\fP at address \fBcpuname\fP:\fBaddress\fP\&. When \fBcpuname\fP:\fBaddress\fP is executed, \fBfunc\fP will be called.
+.sp
+TODO: verify whether \fBsize\fP and \fBcpuname\fP are used at all (they don’t seem to be).
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+memory.registerexec(0x02103ea8, debugPrintHook)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS joypad
+.SS input
+.SS movie
+.SS sound
+.SS bit
+.SS agg
+.SS controller
+.INDENT 0.0
+.IP \(bu 2
+modindex
+.UNINDENT
+.SH AUTHOR
+Jhynjhiruu
+.SH COPYRIGHT
+2021, Jhynjhiruu
+.\" Generated by docutils manpage writer.
+.
